@@ -21,16 +21,17 @@ const counter = () => {
     getHole(i).onclick = () => {
       if(getHole(i).className.includes("hole_has-mole")) {
         winCounter.textContent = Number(winCounter.textContent) + 1
-        counter();
+        winOrLost();
       } else {
         lostCounter.textContent = Number(lostCounter.textContent) + 1
-        counter();
+        winOrLost();
       }
     }
   }
 }
 
-winOrLost();
+counter();
+
 
 
 
