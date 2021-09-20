@@ -2,9 +2,10 @@ const tasksInput = document.querySelector(".tasks__input");
 const tasksAdd = document.querySelector(".tasks__add");
 const tasksListContainer = document.querySelector(".tasks__list");
 
-const forKeyup = (e) => {
+tasksInput.addEventListener("keyup", e => {
+  e.preventDefault();
+  tasksInput.value = tasksInput.value.trim();
   if(e.keyCode == 13 && tasksInput.value !== "") {
-    e.preventDefault();
     tasksListContainer.innerHTML += `
     <div class="task">
       <div class="task__title">
@@ -15,11 +16,12 @@ const forKeyup = (e) => {
     `;
   tasksInput.value = ""
   }
-}
+})
 
-const forClick = (e) => {
+tasksAdd.addEventListener("click", e => {
+  e.preventDefault();
+  tasksInput.value = tasksInput.value.trim();
   if(tasksInput.value !== "") {
-    e.preventDefault();
     tasksListContainer.innerHTML += `
     <div class="task">
       <div class="task__title">
@@ -36,8 +38,4 @@ const forClick = (e) => {
       elem.closest(".task").remove();
     })
   });
-}
-
-tasksInput.addEventListener("keyup", forKeyup)
-
-tasksAdd.addEventListener("click", forClick)
+})
