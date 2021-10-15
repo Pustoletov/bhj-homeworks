@@ -1,0 +1,47 @@
+const loader = document.querySelector(".loader");
+const items = document.querySelector("#items");
+// const pollAnswersActive = document.querySelector(".poll__answers_active");
+// const pollAnswer = document.querySelectorAll(".poll__answers");
+
+let xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://netology-slow-rest.herokuapp.com');
+xhr.responseType = 'json';
+
+const preloader = () => {
+  if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+    loader.classList.remove("loader_active");
+
+    const valute = xhr.response.response.Valute
+    console.log(valute);
+    const keys = Object.keys(valute);
+
+    keys.forEach(elem => {
+      // console.log(`${(valute[elem]).CharCode}`);
+      let itemCode = `${(valute[elem]).CharCode}`;
+      console.log(itemCode);
+      let itemValue = `${(valute[elem]).Value}`;
+      console.log(itemValue);
+      let name = `${(valute[elem]).Name}`;
+      console.log(name);
+      items.innerHTML += `
+      <div id="items">
+          <div class="item">
+            <div class="item__code">
+              ${itemCode}
+            </div>
+            <div class="item__value">
+              ${itemValue}
+            </div>
+            <div class="item__currency">
+              руб.
+            </div>
+          </div>
+        </div>
+      `
+    });
+  }
+}
+
+xhr.addEventListener("readystatechange", preloader);
+
+xhr.send();
