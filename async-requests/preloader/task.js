@@ -1,7 +1,5 @@
 const loader = document.querySelector(".loader");
 const items = document.querySelector("#items");
-// const pollAnswersActive = document.querySelector(".poll__answers_active");
-// const pollAnswer = document.querySelectorAll(".poll__answers");
 
 let xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://netology-slow-rest.herokuapp.com');
@@ -15,7 +13,6 @@ const preloader = () => {
     const keys = Object.keys(valute);
 
     keys.forEach(elem => {
-      // console.log(`${(valute[elem]).CharCode}`);
       let itemCode = `${(valute[elem]).CharCode}`;
       let itemValue = `${(valute[elem]).Value}`;
       let name = `${(valute[elem]).Name}`;
