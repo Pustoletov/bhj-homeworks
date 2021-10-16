@@ -12,17 +12,13 @@ const preloader = () => {
     loader.classList.remove("loader_active");
 
     const valute = xhr.response.response.Valute
-    console.log(valute);
     const keys = Object.keys(valute);
 
     keys.forEach(elem => {
       // console.log(`${(valute[elem]).CharCode}`);
       let itemCode = `${(valute[elem]).CharCode}`;
-      console.log(itemCode);
       let itemValue = `${(valute[elem]).Value}`;
-      console.log(itemValue);
       let name = `${(valute[elem]).Name}`;
-      console.log(name);
       items.innerHTML += `
       <div id="items">
           <div class="item">
