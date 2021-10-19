@@ -3,7 +3,7 @@ const close = document.querySelector('.modal__close');
 
 function subscribe() {
   modal.classList.toggle('modal_active');
-  close.addeventlistner("click", () =>{
+  close.addEventListener("click", () =>{
     document.cookie = 'user=closed';
     modal.classList.toggle('modal_active');
   });
