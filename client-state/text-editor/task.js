@@ -5,5 +5,5 @@ window.addEventListener("keydown", ()=>{
 });
 
 (() => {
-  editor.value = localStorage.getItem('editorTextContent');
+  editor.value = localStorage.getItem("editorTextContent");
 })();

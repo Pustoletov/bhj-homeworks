@@ -21,9 +21,7 @@ if (parts.length === 2) {
 }
 
 window.onload = function() {
-if (getCookie('user')) {
-  return
-} else {
+if (!getCookie('user')) {
   subscribe();
-  }
+  } 
 }
